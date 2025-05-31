@@ -1,5 +1,6 @@
 import pygame, sys
 from grid import Grid
+from blocks import *
 
 #initialize pygame
 pygame.init()
@@ -15,6 +16,10 @@ pygame.display.set_caption("PyTetris")
 clock = pygame.time.Clock()
 
 game_grid = Grid()
+
+block = OBlock()
+
+
 game_grid.print_grid()
 
 #game run loop
@@ -30,8 +35,10 @@ while True:
     
     #Drawing
     screen.fill(dark_blue)
+    game_grid.draw(screen)
+    block.draw(screen)
 
     #updates/draws picture of display
     pygame.display.update()
     #number of frames per second for game
-    clock.tick(60 )
+    clock.tick(60)
